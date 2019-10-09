@@ -14,7 +14,7 @@ namespace VehicleSearch.Controllers
         // GET: api/Vehicle
         public IEnumerable<string> Get()
         {
-            return GetVehicles().Select(x => x.Make).OrderBy(x => x);
+            return GetVehicles().Select(x => x.Make).Distinct().OrderBy(x => x);
         }
 
         // GET: api/Vehicle/Ford
