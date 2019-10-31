@@ -45,5 +45,17 @@ namespace VehicleSearch.Test
             Assert.IsTrue(blankModelResult.Count() == 0);
         }
 
+        [TestMethod]
+        public void GetFordF150Models()
+        {
+            var vehicleController = new VehicleController();
+            IEnumerable<Vehicle> modelResult = vehicleController.Get("Ford", "F150");
+            var model = modelResult.First();
+            Assert.IsTrue(modelResult.Count() == 1);
+            Assert.IsTrue(model is Truck);
+            Assert.IsTrue(((Truck)model).BedLength == 6.5);
+
+        }
+
     }
 }
